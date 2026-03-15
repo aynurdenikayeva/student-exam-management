@@ -60,7 +60,19 @@ Bu sistem birinci imtahandan uğurla keçmiş tələbələrin ikinci mərhələy
 
 ## API Endpoints
 
-### `POST /secondExam/register`
+### 1. `POST /student/register`
+Tələbənin sistemə qeydiyyatı üçün endpoint.
+
+**Request body:**
+```json
+{
+  "name": "Aynur",
+  "surname": "Denikayeva",
+  "email": "student@example.com",
+  "password": "securepassword"
+}
+
+### 2.`POST /secondExam/register`
 İkinci imtahana qeydiyyat üçün endpoint.
 
 **Request body:**
