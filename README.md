@@ -76,7 +76,6 @@ Tələbənin sistemə qeydiyyatı üçün endpoint.
 
 ---
 
-```json
 {
   "email": "student@example.com",
   "password": "securepassword"
