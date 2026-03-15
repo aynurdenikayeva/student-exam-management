@@ -62,9 +62,11 @@ Bu sistem birinci imtahandan uğurla keçmiş tələbələrin ikinci mərhələy
 
 ### 1. `POST /student/register`
 Tələbənin sistemə qeydiyyatı üçün endpoint.
+### 2. `POST /secondExam/register`
+İkinci imtahana qeydiyyat üçün endpoint.
 
 **Request body:**
-```json```
+```json
 {
   "name": "Aynur",
   "surname": "Denikayeva",
@@ -73,11 +75,6 @@ Tələbənin sistemə qeydiyyatı üçün endpoint.
 }
 
 ---
-
-### 2. `POST /secondExam/register`
-İkinci imtahana qeydiyyat üçün endpoint.
-
-**Request body:**
 
 ```json
 {
