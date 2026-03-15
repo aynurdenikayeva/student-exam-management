@@ -72,6 +72,8 @@ Tələbənin sistemə qeydiyyatı üçün endpoint.
   "password": "securepassword"
 }
 
+---
+
 ### 2.`POST /secondExam/register`
 İkinci imtahana qeydiyyat üçün endpoint.
 
