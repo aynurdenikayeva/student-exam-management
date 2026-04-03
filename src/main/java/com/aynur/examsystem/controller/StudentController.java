@@ -32,7 +32,8 @@ public class StudentController {
         }
     }
     @GetMapping("/all")
-    public ResponseEntity<?> getAllStudents() {
+    public ResponseEntity<List<Student>> getAllStudents() {
+        // Burada artıq login olan istifadəçi yoxlanacaq SecurityConfig vasitəsilə
         return ResponseEntity.ok(studentService.getAllStudents());
     }
 }

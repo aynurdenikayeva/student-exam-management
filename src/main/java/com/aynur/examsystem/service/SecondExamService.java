@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class SecondExamService {
-
     private final StudentRepository studentRepository;
     private final FirstExamRepository firstExamRepository;
     private final SecondExamRepository secondExamRepository;
@@ -47,17 +46,19 @@ public class SecondExamService {
                     .body(new ApiResponse("First exam record not found"));
         }
         if (exam.getResult() < 70) {
-            emailService.sendQr(student.getEmail(), null); // null göndəririk, emaildə sadəcə keçmədiyinə dair mesaj
+            emailService.sendQr(student.getEmail(), null);
             return ResponseEntity.status(403)
-                    .body(new ApiResponse("You did not pass the first exam. QR cannot be generated."));
+                    .body(new ApiResponse("You did not pass the first exam."));
         }
         if (exam.getSecondExamQrUrl() != null) {
             emailService.sendQr(student.getEmail(), exam.getSecondExamQrUrl());
             return ResponseEntity.ok(new ApiResponse("QR already exists, email sent"));
         }
         String qrUrl = qrCodeService.generateQr(student.getEmail());
+
         exam.setSecondExamQrUrl(qrUrl);
         firstExamRepository.save(exam);
+
         SecondExam secondExam = new SecondExam();
         secondExam.setStudent(student);
         secondExamRepository.save(secondExam);

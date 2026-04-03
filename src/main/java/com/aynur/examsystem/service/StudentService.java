@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class StudentService {
@@ -25,8 +27,7 @@ public class StudentService {
                 .map(student -> passwordEncoder.matches(rawPassword, student.getPassword()))
                 .orElse(false);
     }
-    public Object getAllStudents()
-        {
+    public List<Student> getAllStudents() {
         return studentRepository.findAll();
-        }
+    }
 }

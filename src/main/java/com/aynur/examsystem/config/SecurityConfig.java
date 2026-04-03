@@ -13,9 +13,8 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/student/**").permitAll()
-                        .requestMatchers("/secondExam/register").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/student/register", "/student/login", "/secondExam/register").permitAll()
+                        .anyRequest().authenticated() // digər bütün endpointlər login tələb edir
                 )
                 .httpBasic();
         return http.build();
